@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 public class App {
-    static String estudiante;
+    static Scanner sc = new Scanner(System.in);
+    static String estudiante = "";
     static double nota1, nota2, nota3;
 
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
+
         menu(sc);
 
     }
@@ -30,7 +31,7 @@ public class App {
                     break;
 
                 case 2:
-                    // mostrarEstudiante();
+                    mostrarInfoEstudiante();
                     break;
 
                 case 3:
@@ -44,7 +45,7 @@ public class App {
                     break;
             }
         } while (opcion != 4);
-        
+
     }
 
     public static void registrarEstudiante(Scanner sc) {
@@ -64,14 +65,21 @@ public class App {
 
         do {
             System.out.print("ingrese Nota 2 de " + nombre + ": ");
-            nota1 = sc.nextDouble();
+            nota2 = sc.nextDouble();
         } while (nota1 > 5 || nota1 < 0);
 
         do {
             System.out.print("ingrese Nota 3 de " + nombre + ": ");
-            nota1 = sc.nextDouble();
+            nota3 = sc.nextDouble();
         } while (nota1 > 5 || nota1 < 0);
+    }
 
+    public static void mostrarInfoEstudiante() {
+        if (estudiante.isEmpty()) {
+            System.out.println("N/A");
+        } else
+            System.out.println("\tEstudiante: " + estudiante + "\n\tnota 1: " + nota1 + "\n\tnota 2: " + nota2
+                    + "\n\tnota 3: " + nota3);
     }
 
 }

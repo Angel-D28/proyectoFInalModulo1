@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class App {
-    static Scanner sc = new Scanner(System.in);
+    
     static String estudiante = "";
     static double nota1, nota2, nota3;
 
     public static void main(String[] args) throws Exception {
-
+        Scanner sc = new Scanner(System.in);
         menu(sc);
 
     }
@@ -35,7 +35,7 @@ public class App {
                     break;
 
                 case 3:
-                    // calcularPromedioNotasEStudiante();
+                    calcularPromedioNotaEstudiante();
                     break;
                 case 4:
                     System.out.println("Saliendo del sistema....");
@@ -80,6 +80,14 @@ public class App {
         } else
             System.out.println("\tEstudiante: " + estudiante + "\n\tnota 1: " + nota1 + "\n\tnota 2: " + nota2
                     + "\n\tnota 3: " + nota3);
+    }
+
+    public static void calcularPromedioNotaEstudiante(){
+        double promedio = (nota1 + nota2 + nota3)/3;
+        if (promedio == 0) {
+            System.out.println("N/A");
+        }
+        System.out.printf("El promedio de " + estudiante + " es: " + promedio);
     }
 
 }
